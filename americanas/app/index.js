@@ -314,7 +314,7 @@ export default function Home() {
                             onPress={() => console.log('Imagem 1 clicada')}
                         >
                             <Image
-                                source={{ uri: 'https://www.americanas.com.br/_next/image?url=https%3A%2F%2Fimages-americanas.b2w.io%2Fspacey%2F2023%2F05%2F22%2Flanding-1200x300-smartphones-1-64420d1be7b3a.png&w=1200&q=75' }}
+                                source={{ uri: 'https://americanas.vtexassets.com/assets/vtex.file-manager-graphql/images/f8aa7e04-b1c4-4659-af6d-45d498403c75___107e603170cd79aa689c18df6d73003d.png' }}
                                 style={styles.gridImage}
                                 resizeMode="cover"
                             />
@@ -326,7 +326,7 @@ export default function Home() {
                             onPress={() => console.log('Imagem 2 clicada')}
                         >
                             <Image
-                                source={{ uri: 'https://www.americanas.com.br/_next/image?url=https%3A%2F%2Fimages-americanas.b2w.io%2Fspacey%2F2023%2F05%2F22%2Flanding-1200x300-eletrodomesticos-1-64420d1de3e76.png&w=1200&q=75' }}
+                                source={{ uri: 'https://www.americanas.com.br/_next/image?url=https%3A%2F%2Famericanas.vtexassets.com%2Fassets%2Fvtex.file-manager-graphql%2Fimages%2F6ad59824-4d51-47d7-9006-70e119a83e4e___a292fadc0d5806769eaa96459d6a83b2.png&w=1440&q=75' }}
                                 style={styles.gridImage}
                                 resizeMode="cover"
                             />
@@ -340,7 +340,7 @@ export default function Home() {
                             onPress={() => console.log('Imagem 3 clicada')}
                         >
                             <Image
-                                source={{ uri: 'https://www.americanas.com.br/_next/image?url=https%3A%2F%2Fimages-americanas.b2w.io%2Fspacey%2F2023%2F05%2F22%2Flanding-1200x300-tvs-1-64420d1d99983.png&w=1200&q=75' }}
+                                source={{ uri: 'https://cdn.dooca.store/239/products/avcoopwxt60li1xjtvaq2qmd537wxg8nb5uj_640x640+fill_ffffff.jpeg?v=1655052001&webp=0' }}
                                 style={styles.gridImage}
                                 resizeMode="cover"
                             />
@@ -352,7 +352,7 @@ export default function Home() {
                             onPress={() => console.log('Imagem 4 clicada')}
                         >
                             <Image
-                                source={{ uri: 'https://www.americanas.com.br/_next/image?url=https%3A%2F%2Fimages-americanas.b2w.io%2Fspacey%2F2023%2F05%2F22%2Flanding-1200x300-moveis-1-64420d1de56bd.png&w=1200&q=75' }}
+                                source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkEnlQRIwb9SZMtkqtpcp7rxrtJsMuEYTplM9fX_GqtO3bC1CeYuW_fbz9uk2fHzd2Uec&usqp=CAU' }}
                                 style={styles.gridImage}
                                 resizeMode="cover"
                             />
@@ -363,7 +363,7 @@ export default function Home() {
                                <View style={styles.imageContainer}>
                     <Image
                         source={{
-                            uri: 'https://www.americanas.com.br/_next/image?url=https%3A%2F%2Famericanas.vtexassets.com%2Fassets%2Fvtex.file-manager-graphql%2Fimages%2F7ae60482-ee28-4dce-ba6d-0f1382158f22___6ed500bdbee14a722279c3b22446d1b3.png&w=1440&q=90',
+                            uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvnvnB0M0YGUyQysnoaGTJ-11tw14IwxByImcWu8GCmWbG7vJi1noeVeOWS6Lk9Yq8cms&usqp=CAU',
                         }}
                         style={{
                             width: Dimensions.get('window').width * 0.99,
@@ -377,7 +377,7 @@ export default function Home() {
                    <View style={styles.imageContainer}>
                     <Image
                         source={{
-                            uri: 'https://www.americanas.com.br/_next/image?url=https%3A%2F%2Famericanas.vtexassets.com%2Fassets%2Fvtex.file-manager-graphql%2Fimages%2F7ae60482-ee28-4dce-ba6d-0f1382158f22___6ed500bdbee14a722279c3b22446d1b3.png&w=1440&q=90',
+                            uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW6jbxx36dI3MHNbnCsenmHsbTvhH5O1aysSJbHwv9cRqy6DZDzcBJWajg5Zv7hIkd73o&usqp=CAU',
                         }}
                         style={{
                             width: Dimensions.get('window').width * 0.99,
@@ -396,7 +396,7 @@ export default function Home() {
                             onPress={() => console.log('Imagem 1 clicada')}
                         >
                             <Image
-                                source={{ uri: 'https://www.americanas.com.br/_next/image?url=https%3A%2F%2Fimages-americanas.b2w.io%2Fspacey%2F2023%2F05%2F22%2Flanding-1200x300-smartphones-1-64420d1be7b3a.png&w=1200&q=75' }}
+                                source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSwL7agw9ggLwdQWNQ56LDOYTlBdCV-Nb5_Ct72HpVlgz6co6c_EBSZTI1idKaY78tKnc&usqp=CAU' }}
                                 style={styles.gridImage}
                                 resizeMode="cover"
                             />
@@ -408,7 +408,7 @@ export default function Home() {
                             onPress={() => console.log('Imagem 2 clicada')}
                         >
                             <Image
-                                source={{ uri: 'https://www.americanas.com.br/_next/image?url=https%3A%2F%2Fimages-americanas.b2w.io%2Fspacey%2F2023%2F05%2F22%2Flanding-1200x300-eletrodomesticos-1-64420d1de3e76.png&w=1200&q=75' }}
+                                source={{ uri: 'https://lojasantoantonio.vtexassets.com/arquivos/ids/218297/Chocolate-Kitkat-415G-NESTLE.jpg?v=638313347792670000' }}
                                 style={styles.gridImage}
                                 resizeMode="cover"
                             />
@@ -422,7 +422,7 @@ export default function Home() {
                             onPress={() => console.log('Imagem 3 clicada')}
                         >
                             <Image
-                                source={{ uri: 'https://www.americanas.com.br/_next/image?url=https%3A%2F%2Fimages-americanas.b2w.io%2Fspacey%2F2023%2F05%2F22%2Flanding-1200x300-tvs-1-64420d1d99983.png&w=1200&q=75' }}
+                                source={{ uri: 'https://docemalu.vtexassets.com/arquivos/ids/5341105/146049-1.jpg?v=638421748822600000' }}
                                 style={styles.gridImage}
                                 resizeMode="cover"
                             />
@@ -434,7 +434,7 @@ export default function Home() {
                             onPress={() => console.log('Imagem 4 clicada')}
                         >
                             <Image
-                                source={{ uri: 'https://www.americanas.com.br/_next/image?url=https%3A%2F%2Fimages-americanas.b2w.io%2Fspacey%2F2023%2F05%2F22%2Flanding-1200x300-moveis-1-64420d1de56bd.png&w=1200&q=75' }}
+                                source={{ uri: 'https://www.americanas.com.br/_next/image?url=https%3A%2F%2Famericanas.vtexassets.com%2Fassets%2Fvtex.file-manager-graphql%2Fimages%2F6ad59824-4d51-47d7-9006-70e119a83e4e___a292fadc0d5806769eaa96459d6a83b2.png&w=1440&q=75' }}
                                 style={styles.gridImage}
                                 resizeMode="cover"
                             />
