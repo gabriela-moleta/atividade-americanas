@@ -3,33 +3,94 @@ import { View, TextInput, StyleSheet, SafeAreaView, Image, Dimensions, FlatList,
 import { Ionicons } from '@expo/vector-icons';
 import Constants from 'expo-constants';
 
-
-export default function Home() {
-     
+export default function JewelryStore() {
     const [activeIndex, setActiveIndex] = useState(0);
     const flatListRef = useRef(null);
-    
-    
- 
-    const carouselImages = [
-        { id: '1', uri: 'https://images-americanas.b2w.io/spacey/acom/2024/07/26/compre-online-e-retire-na-loja-mob-c492ec00c5f2.png' },
-        { id: '2', uri: 'https://images-americanas.b2w.io/spacey/acom/2024/07/26/estrela_mob-bf525f7a77bc.png' },
-        { id: '3', uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTF-T1oSxlAu7FM7IxEnDh7UZVINTAuT2umSQ&s' },
-       
+
+    const carouselProducts = [
+        { 
+            id: '1', 
+            uri: 'https://cdn.dooca.store/239/products/avcoopwxt60li1xjtvaq2qmd537wxg8nb5uj_640x640+fill_ffffff.jpeg?v=1655052001&webp=0',
+            name: 'Colar de Diamante',
+            price: 'R$ 2.499,90',
+            description: 'Colar em ouro 18k com diamantes naturais, peça exclusiva'
+        },
+        { 
+            id: '2', 
+            uri: 'https://cdn.shopify.com/s/files/1/0562/0241/3065/products/brinco-de-ouro-18k-pingente-perola-cultivada-01_800x.jpg?v=1645568131',
+            name: 'Brincos de Pérola',
+            price: 'R$ 1.299,90',
+            description: 'Brincos em ouro 18k com pérolas cultivadas, elegância atemporal'
+        },
+        { 
+            id: '3', 
+            uri: 'https://images.tcdn.com.br/img/img_prod/1148434/anel_solitario_ouro_18k_com_diamante_0_25ct_1_3c1f5c1c8c0c5c4f3d1d5a9f3b4c4c4c.jpg',
+            name: 'Anel Solitário',
+            price: 'R$ 3.899,90',
+            description: 'Anel em ouro 18k com diamante central 0.5ct, acabamento brilhante'
+        },
     ];
 
-    const renderCarouselItem = ({ item, index }) => {
+    const featuredProducts = [
+        {
+            id: '1',
+            uri: 'https://cdn.shopify.com/s/files/1/0562/0241/3065/products/pulseira-de-ouro-18k-corrente-italiana-01_800x.jpg?v=1645568131',
+            name: 'Pulseira Italiana',
+            price: 'R$ 1.899,90',
+            description: 'Pulseira em ouro 18k, corrente italiana 4mm'
+        },
+        {
+            id: '2',
+            uri: 'https://cdn.shopify.com/s/files/1/0562/0241/3065/products/anel-de-ouro-18k-com-zirconia-cubica-01_800x.jpg?v=1645568131',
+            name: 'Anel de Zircônia',
+            price: 'R$ 799,90',
+            description: 'Anel em ouro 18k com zircônia cúbica, brilho intenso'
+        },
+        {
+            id: '3',
+            uri: 'https://cdn.shopify.com/s/files/1/0562/0241/3065/products/colar-de-ouro-18k-corrente-cubana-01_800x.jpg?v=1645568131',
+            name: 'Colar Cubano',
+            price: 'R$ 3.299,90',
+            description: 'Colar em ouro 18k, corrente cubana 8mm'
+        },
+        {
+            id: '4',
+            uri: 'https://cdn.shopify.com/s/files/1/0562/0241/3065/products/brinco-de-ouro-18k-argola-01_800x.jpg?v=1645568131',
+            name: 'Argolas Douradas',
+            price: 'R$ 599,90',
+            description: 'Brincos argola em ouro 18k, diversos tamanhos'
+        }
+    ];
+
+    const renderCarouselItem = ({ item }) => {
         return (
-            <TouchableOpacity 
-                activeOpacity={0.9}
-                onPress={() => console.log(`Imagem ${index + 1} clicada`)}
-            >
-                <View style={styles.carouselItemContainer}>
-                    <Image
-                        source={{ uri: item.uri }}
-                        style={styles.carouselImage}
-                        resizeMode="cover" 
-                    />
+            <View style={styles.carouselItemContainer}>
+                <Image
+                    source={{ uri: item.uri }}
+                    style={styles.carouselImage}
+                    resizeMode="cover" 
+                />
+                <View style={styles.productInfo}>
+                    <Text style={styles.productName}>{item.name}</Text>
+                    <Text style={styles.productPrice}>{item.price}</Text>
+                    <Text style={styles.productDescription}>{item.description}</Text>
+                </View>
+            </View>
+        );
+    };
+
+    const renderProductItem = ({ item }) => {
+        return (
+            <TouchableOpacity style={styles.productItem}>
+                <Image
+                    source={{ uri: item.uri }}
+                    style={styles.productImage}
+                    resizeMode="cover"
+                />
+                <View style={styles.productInfo}>
+                    <Text style={styles.productName}>{item.name}</Text>
+                    <Text style={styles.productPrice}>{item.price}</Text>
+                    <Text style={styles.productDescription}>{item.description}</Text>
                 </View>
             </TouchableOpacity>
         );
@@ -43,411 +104,93 @@ export default function Home() {
 
     return (
         <SafeAreaView style={styles.container}>
-           <StatusBar backgroundColor="transparent" barStyle="light-content" translucent={true} />
+            <StatusBar backgroundColor="#d4af37" barStyle="light-content" />
             
+            {/* Banner de Boas-Vindas */}
+            <View style={styles.welcomeBanner}>
+                <Text style={styles.welcomeTitle}>Bem-vindo à Joalheria Lux</Text>
+                <Text style={styles.welcomeSubtitle}>Jóias que contam histórias</Text>
+            </View>
             
+            {/* Barra de Pesquisa */}
             <View style={styles.searchBarContainer}>
                 <View style={styles.searchBar}>
                     <Ionicons name="search" size={22} color="#888" style={styles.icon} />
                     <TextInput
                         style={styles.input}
-                        placeholder="busque aqui seu produto"
+                        placeholder="Busque por colares, anéis, brincos..."
                         placeholderTextColor="#888"
                     />
                 </View>
             </View>
-            
 
-            <ScrollView 
-                showsVerticalScrollIndicator={false}
-                contentContainerStyle={styles.scrollViewContent}
-            >
-                <View style={{ height: 10 }} />
-                <View style={styles.imageContainer}>
-                    <Image
-                        source={{
-                            uri: 'https://passageirodeprimeira.com/wp-content/uploads/2021/07/passageirodeprimeira.com-tudoazulamericanas-americanas.jpg',
-                        }}
-                        style={{
-                            width: Dimensions.get('window').width * 0.99,
-                            height: Dimensions.get('window').width * 0.38,
-                            borderRadius: 0,
-                        }}
-                        resizeMode="cover"
-                    />
-                </View>
-                
-               
-                <View style={styles.carouselContainer}>
-                    <Text style={styles.carouselTitle}></Text>
-                    <FlatList
-                        ref={flatListRef}
-                        data={carouselImages}
-                        renderItem={renderCarouselItem}
-                        keyExtractor={(item) => item.id}
-                        horizontal
-                        showsHorizontalScrollIndicator={false}
-                        pagingEnabled={false}
-                        decelerationRate="fast"
-                        snapToInterval={Dimensions.get('window').width * 0.98 + 10}
-                        snapToAlignment="center"
-                        onScroll={handleScroll}
-                        contentContainerStyle={styles.carouselList}
-                        nestedScrollEnabled={true}
-                    />
-                    <View style={styles.paginationContainer}>
-                        {carouselImages.map((_, index) => (
-                            <View
-                                key={index}
-                                style={[
-                                    styles.paginationDot,
-                                    index === activeIndex ? styles.paginationDotActive : null
-                                ]}
-                            />
-                        ))}
-                    </View>
-                </View>
-               
-                
-                
-                <View style={styles.gridContainer}>
-                    <View style={styles.gridRow}>
-                        <TouchableOpacity 
-                            style={styles.gridItem}
-                            activeOpacity={0.9}
-                            onPress={() => console.log('Imagem 1 clicada')}
-                        >
-                            <Image
-                                source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT4KcjjZvm4P7lL_nGUS8xIIAeT2FhozWbzag&s' }}
-                                style={styles.gridImage}
-                                resizeMode="cover"
-                            />
-                        </TouchableOpacity>
-                        
-                        <TouchableOpacity 
-                            style={styles.gridItem}
-                            activeOpacity={0.9}
-                            onPress={() => console.log('Imagem 2 clicada')}
-                        >
-                            <Image
-                                source={{ uri: 'https://americanas.vtexassets.com/assets/vtex.file-manager-graphql/images/68f70d0e-b1ad-4739-a68b-93eb822f680d___c783a9701c44e2bb2765e743e8807594.png' }}
-                                style={styles.gridImage}
-                                resizeMode="cover"
-                            />
-                        </TouchableOpacity>
-                    </View>
-                    
-                    <View style={styles.gridRow}>
-                        <TouchableOpacity 
-                            style={styles.gridItem}
-                            activeOpacity={0.9}
-                            onPress={() => console.log('Imagem 3 clicada')}
-                        >
-                            <Image
-                                source={{ uri: 
-                                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaqbrCe4d0_1GIJedzWalddTlRdZ-gjKpGRvVabVpI9NqKv8ALXqm7cG92naegcJXA-5w&usqp=CAU' }}
-                                style={styles.gridImage}
-                                resizeMode="cover"
-                            />
-                        </TouchableOpacity>
-                        
-                        <TouchableOpacity 
-                            style={styles.gridItem}
-                            activeOpacity={0.9}
-                            onPress={() => console.log('Imagem 4 clicada')}
-                        >
-                            <Image
-                                source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDoSJ790n2kVfhtTbKaFJJWt0GkIW8xegL2q6RniKbY5mNeUT31nmdSiCb_D1L4BmiCDk&usqp=CAU' }}
-                                style={styles.gridImage}
-                                resizeMode="cover"
-                            />
-                        </TouchableOpacity>
-                    </View>
+            <ScrollView showsVerticalScrollIndicator={false}>
+                {/* Destaques */}
+                <Text style={styles.sectionTitle}>Destaques</Text>
+                <FlatList
+                    ref={flatListRef}
+                    data={carouselProducts}
+                    renderItem={renderCarouselItem}
+                    keyExtractor={(item) => item.id}
+                    horizontal
+                    showsHorizontalScrollIndicator={false}
+                    pagingEnabled={false}
+                    decelerationRate="fast"
+                    snapToInterval={Dimensions.get('window').width * 0.9 + 10}
+                    snapToAlignment="center"
+                    onScroll={handleScroll}
+                    contentContainerStyle={styles.carouselList}
+                />
+                <View style={styles.paginationContainer}>
+                    {carouselProducts.map((_, index) => (
+                        <View
+                            key={index}
+                            style={[
+                                styles.paginationDot,
+                                index === activeIndex ? styles.paginationDotActive : null
+                            ]}
+                        />
+                    ))}
                 </View>
 
-                <View style={styles.carouselContainer}>
-                    <FlatList
-                        data={carouselImages}
-                        renderItem={renderCarouselItem}
-                        keyExtractor={(item) => `second-${item.id}`}
-                        horizontal
-                        showsHorizontalScrollIndicator={false}
-                        pagingEnabled={false}
-                        decelerationRate="fast"
-                        snapToInterval={Dimensions.get('window').width * 0.98 + 10}
-                        snapToAlignment="center"
-                        contentContainerStyle={styles.carouselList}
-                        nestedScrollEnabled={true}
-                    />
-                    <View style={styles.paginationContainer}>
-                        {carouselImages.map((_, index) => (
-                            <View
-                                key={`second-dot-${index}`}
-                                style={[
-                                    styles.paginationDot,
-                                    index === activeIndex ? styles.paginationDotActive : null
-                                ]}
-                            />
-                        ))}
-                    </View>
-                    
-                
-                     <View style={styles.imageContainer}>
-                    <Image
-                        source={{
-                            uri: 'https://americanas.vtexassets.com/assets/vtex.file-manager-graphql/images/62e0e4df-c534-4550-8eaf-d8d64cb58425___abae653f851001b515f29dbe9cdef223.png',
-                        }}
-                        style={{
-                            width: Dimensions.get('window').width * 0.99,
-                            height: Dimensions.get('window').width * 0.10,
-                            borderRadius: 0,
-                        }}
-                        resizeMode="cover"
-                    />
+                {/* Coleções */}
+                <Text style={styles.sectionTitle}>Nossas Coleções</Text>
+                <View style={styles.collectionsContainer}>
+                    <TouchableOpacity style={styles.collectionItem}>
+                        <Image
+                            source={{ uri: 'https://cdn.shopify.com/s/files/1/0562/0241/3065/files/colecao-ouro-18k_800x.jpg?v=1645568131' }}
+                            style={styles.collectionImage}
+                        />
+                        <Text style={styles.collectionName}>Ouro 18k</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity style={styles.collectionItem}>
+                        <Image
+                            source={{ uri: 'https://cdn.shopify.com/s/files/1/0562/0241/3065/files/colecao-diamantes_800x.jpg?v=1645568131' }}
+                            style={styles.collectionImage}
+                        />
+                        <Text style={styles.collectionName}>Diamantes</Text>
+                    </TouchableOpacity>
                 </View>
 
-                <View style={{ marginTop: 24 }}>
-                    <FlatList
-                        data={[
-                            { id: '1', name: 'telefonia', img: 'https://www.americanas.com.br/_next/image?url=https%3A%2F%2Famericanas.vtexassets.com%2Fassets%2Fvtex.file-manager-graphql%2Fimages%2F5d40f415-b7b4-4c99-8ed6-8390c7875321___2cbb36cc8c96eb67b5248559c5773a19.png&w=320&q=75' },
-                            { id: '2', name: 'beleza e perfumaria', img: 'https://www.americanas.com.br/_next/image?url=https%3A%2F%2Famericanas.vtexassets.com%2Fassets%2Fvtex.file-manager-graphql%2Fimages%2Ffd00f66f-bf1e-421d-81dd-0d6e2f6cec98___8459b90fbc72dbeb9b331370038424d7.png&w=320&q=75' },
-                            { id: '3', name: 'eletrodomésticos', img: 'https://www.americanas.com.br/_next/image?url=https%3A%2F%2Famericanas.vtexassets.com%2Fassets%2Fvtex.file-manager-graphql%2Fimages%2Fed70eaa0-e7cc-432d-9054-62f98fe18fe3___a9f4c0f2cfe82477cf113ec9e91f6b30.png&w=320&q=75' },
-                            { id: '4', name: 'móveis', img: 'https://www.americanas.com.br/_next/image?url=https%3A%2F%2Famericanas.vtexassets.com%2Fassets%2Fvtex.file-manager-graphql%2Fimages%2Fce101dd9-6319-4613-bae7-61fa5792c04a___9fe401358fb4f1499eabd70a3a879c16.png&w=320&q=75' },
-                            { id: '5', name: 'eletroportateis', img: 'https://www.americanas.com.br/_next/image?url=https%3A%2F%2Famericanas.vtexassets.com%2Fassets%2Fvtex.file-manager-graphql%2Fimages%2F8eb3140d-1c4e-46a1-93a9-e299d462bafd___35ba76e0cae65433520cbf7022948ab9.png&w=320&q=75' },
-                            { id: '6', name: 'utilidades domésticas', img: 'https://www.americanas.com.br/_next/image?url=https%3A%2F%2Famericanas.vtexassets.com%2Fassets%2Fvtex.file-manager-graphql%2Fimages%2F10db7df7-a883-412e-89e6-3e04ee250c4e___88dea4382818262b4ea1e04918c766d0.png&w=320&q=75' },
-                            { id: '7', name: 'brinquedos', img: 'https://www.americanas.com.br/_next/image?url=https%3A%2F%2Famericanas.vtexassets.com%2Fassets%2Fvtex.file-manager-graphql%2Fimages%2F91b6c4fe-4c97-4a52-a753-3675214f0d54___232944916c517c32702cdd519f2d76ff.png&w=320&q=75' },
-                        ]}
-                        keyExtractor={item => item.id}
-                        horizontal
-                        showsHorizontalScrollIndicator={false}
-                        contentContainerStyle={{ paddingHorizontal: 12 }}
-                        renderItem={({ item }) => (
-                            <View style={{ alignItems: 'center', marginHorizontal: 10 }}>
-                                <View
-                                    style={{
-                                        width: 60,
-                                        height: 60,
-                                        borderRadius: 30,
-                                        backgroundColor: '#fff',
-                                        justifyContent: 'center',
-                                        alignItems: 'center',
-                                        elevation: 2,
-                                        shadowColor: '#000',
-                                        shadowOpacity: 0.1,
-                                        shadowRadius: 4,
-                                        shadowOffset: { width: 0, height: 2 },
-                                        marginBottom: 6,
-                                    }}
-                                >
-                                    <Image
-                                        source={{ uri: item.img }}
-                                        style={{ width: 48, height: 48, borderRadius: 24 }}
-                                        resizeMode="cover"
-                                    />
-                                </View>
-                                <Text style={{ fontSize: 12, color: '#333', textAlign: 'center', maxWidth: 70 }}>
-                                    {item.name}
-                                </Text>
-                            </View>
-                        )}
-                    />
-                </View>
-                 <View style={styles.gridContainer}>
-                    <View style={styles.gridRow}>
-                        <TouchableOpacity 
-                            style={styles.gridItem}
-                            activeOpacity={0.9}
-                            onPress={() => console.log('Imagem 1 clicada')}
-                        >
-                            <Image
-                                source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBQtDg6Zr3tF-cD_rsd9ud4cCD-EWFPjyPQw&s' }}
-                                style={styles.gridImage}
-                                resizeMode="cover"
-                            />
-                        </TouchableOpacity>
-                        
-                        <TouchableOpacity 
-                            style={styles.gridItem}
-                            activeOpacity={0.9}
-                            onPress={() => console.log('Imagem 2 clicada')}
-                        >
-                            <Image
-                                source={{ uri: 'https://upload.wikimedia.org/wikipedia/commons/8/8a/Logo_americanas.png' }}
-                                style={styles.gridImage}
-                                resizeMode="cover"
-                            />
-                        </TouchableOpacity>
-                    </View>
-                    
-                    <View style={styles.gridRow}>
-                        <TouchableOpacity 
-                            style={styles.gridItem}
-                            activeOpacity={0.9}
-                            onPress={() => console.log('Imagem 3 clicada')}
-                        >
-                            <Image
-                                source={{ uri: 'https://americanas.vtexassets.com/assets/vtex.file-manager-graphql/images/9de1413a-f77b-4890-a3fb-3ab3501f8ec5___de607798c858b91e43281e7bd4dd8887.png' }}
-                                style={styles.gridImage}
-                                resizeMode="cover"
-                            />
-                        </TouchableOpacity>
-                        
-                        <TouchableOpacity 
-                            style={styles.gridItem}
-                            activeOpacity={0.9}
-                            onPress={() => console.log('Imagem 4 clicada')}
-                        >
-                            <Image
-                                source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTXZz06xlTSCr1iPAhg4FSa_dDesOQvctL2g&s' }}
-                                style={styles.gridImage}
-                                resizeMode="cover"
-                            />
-                        </TouchableOpacity>
-                    </View>
-                </View>
+                {/* Produtos em Destaque */}
+                <Text style={styles.sectionTitle}>Nossas Jóias</Text>
+                <FlatList
+                    data={featuredProducts}
+                    renderItem={renderProductItem}
+                    keyExtractor={(item) => item.id}
+                    numColumns={2}
+                    columnWrapperStyle={styles.productRow}
+                    scrollEnabled={false}
+                />
 
-                  <View style={styles.gridContainer}>
-                    <View style={styles.gridRow}>
-                        <TouchableOpacity 
-                            style={styles.gridItem}
-                            activeOpacity={0.9}
-                            onPress={() => console.log('Imagem 1 clicada')}
-                        >
-                            <Image
-                                source={{ uri: 'https://americanas.vtexassets.com/assets/vtex.file-manager-graphql/images/f8aa7e04-b1c4-4659-af6d-45d498403c75___107e603170cd79aa689c18df6d73003d.png' }}
-                                style={styles.gridImage}
-                                resizeMode="cover"
-                            />
-                        </TouchableOpacity>
-                        
-                        <TouchableOpacity 
-                            style={styles.gridItem}
-                            activeOpacity={0.9}
-                            onPress={() => console.log('Imagem 2 clicada')}
-                        >
-                            <Image
-                                source={{ uri: 'https://www.americanas.com.br/_next/image?url=https%3A%2F%2Famericanas.vtexassets.com%2Fassets%2Fvtex.file-manager-graphql%2Fimages%2F6ad59824-4d51-47d7-9006-70e119a83e4e___a292fadc0d5806769eaa96459d6a83b2.png&w=1440&q=75' }}
-                                style={styles.gridImage}
-                                resizeMode="cover"
-                            />
-                        </TouchableOpacity>
-                    </View>
-                    
-                    <View style={styles.gridRow}>
-                        <TouchableOpacity 
-                            style={styles.gridItem}
-                            activeOpacity={0.9}
-                            onPress={() => console.log('Imagem 3 clicada')}
-                        >
-                            <Image
-                                source={{ uri: 'https://cdn.dooca.store/239/products/avcoopwxt60li1xjtvaq2qmd537wxg8nb5uj_640x640+fill_ffffff.jpeg?v=1655052001&webp=0' }}
-                                style={styles.gridImage}
-                                resizeMode="cover"
-                            />
-                        </TouchableOpacity>
-                        
-                        <TouchableOpacity 
-                            style={styles.gridItem}
-                            activeOpacity={0.9}
-                            onPress={() => console.log('Imagem 4 clicada')}
-                        >
-                            <Image
-                                source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkEnlQRIwb9SZMtkqtpcp7rxrtJsMuEYTplM9fX_GqtO3bC1CeYuW_fbz9uk2fHzd2Uec&usqp=CAU' }}
-                                style={styles.gridImage}
-                                resizeMode="cover"
-                            />
-                        </TouchableOpacity>
-                    </View>
-
+                {/* Sobre a Loja */}
+                <View style={styles.aboutContainer}>
+                    <Text style={styles.aboutTitle}>Joalheria Lux</Text>
+                    <Text style={styles.aboutText}>
+                        Desde 1985 criando peças exclusivas que marcam os momentos mais especiais da sua vida. 
+                        Nossas jóias são feitas com os melhores materiais e acabamento impecável.
+                    </Text>
                 </View>
-                               <View style={styles.imageContainer}>
-                    <Image
-                        source={{
-                            uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvnvnB0M0YGUyQysnoaGTJ-11tw14IwxByImcWu8GCmWbG7vJi1noeVeOWS6Lk9Yq8cms&usqp=CAU',
-                        }}
-                        style={{
-                            width: Dimensions.get('window').width * 0.99,
-                            height: Dimensions.get('window').width * 0.30,
-                            borderRadius: 0,
-                        }}
-                        resizeMode="cover"
-                    />
-                </View>
-
-                   <View style={styles.imageContainer}>
-                    <Image
-                        source={{
-                            uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRW6jbxx36dI3MHNbnCsenmHsbTvhH5O1aysSJbHwv9cRqy6DZDzcBJWajg5Zv7hIkd73o&usqp=CAU',
-                        }}
-                        style={{
-                            width: Dimensions.get('window').width * 0.99,
-                            height: Dimensions.get('window').width * 0.30,
-                            borderRadius: 0,
-                        }}
-                        resizeMode="cover"
-                    />
-                </View>
-
-                         <View style={styles.gridContainer}>
-                    <View style={styles.gridRow}>
-                        <TouchableOpacity 
-                            style={styles.gridItem}
-                            activeOpacity={0.9}
-                            onPress={() => console.log('Imagem 1 clicada')}
-                        >
-                            <Image
-                                source={{ uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSwL7agw9ggLwdQWNQ56LDOYTlBdCV-Nb5_Ct72HpVlgz6co6c_EBSZTI1idKaY78tKnc&usqp=CAU' }}
-                                style={styles.gridImage}
-                                resizeMode="cover"
-                            />
-                        </TouchableOpacity>
-                        
-                        <TouchableOpacity 
-                            style={styles.gridItem}
-                            activeOpacity={0.9}
-                            onPress={() => console.log('Imagem 2 clicada')}
-                        >
-                            <Image
-                                source={{ uri: 'https://lojasantoantonio.vtexassets.com/arquivos/ids/218297/Chocolate-Kitkat-415G-NESTLE.jpg?v=638313347792670000' }}
-                                style={styles.gridImage}
-                                resizeMode="cover"
-                            />
-                        </TouchableOpacity>
-                    </View>
-                    
-                    <View style={styles.gridRow}>
-                        <TouchableOpacity 
-                            style={styles.gridItem}
-                            activeOpacity={0.9}
-                            onPress={() => console.log('Imagem 3 clicada')}
-                        >
-                            <Image
-                                source={{ uri: 'https://docemalu.vtexassets.com/arquivos/ids/5341105/146049-1.jpg?v=638421748822600000' }}
-                                style={styles.gridImage}
-                                resizeMode="cover"
-                            />
-                        </TouchableOpacity>
-                        
-                        <TouchableOpacity 
-                            style={styles.gridItem}
-                            activeOpacity={0.9}
-                            onPress={() => console.log('Imagem 4 clicada')}
-                        >
-                            <Image
-                                source={{ uri: 'https://www.americanas.com.br/_next/image?url=https%3A%2F%2Famericanas.vtexassets.com%2Fassets%2Fvtex.file-manager-graphql%2Fimages%2F6ad59824-4d51-47d7-9006-70e119a83e4e___a292fadc0d5806769eaa96459d6a83b2.png&w=1440&q=75' }}
-                                style={styles.gridImage}
-                                resizeMode="cover"
-                            />
-                        </TouchableOpacity>
-                    </View>
-                </View>
-
-                
-
-                </View>
-                
-                
-                <View style={{ height: 20 }} />
             </ScrollView>
         </SafeAreaView>
     );
@@ -458,83 +201,94 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#fff',
     },
+    welcomeBanner: {
+        backgroundColor: '#d4af37', // Dourado
+        paddingVertical: 30,
+        paddingHorizontal: 20,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    welcomeTitle: {
+        fontSize: 28,
+        fontWeight: 'bold',
+        color: '#fff',
+        marginBottom: 5,
+    },
+    welcomeSubtitle: {
+        fontSize: 16,
+        color: '#fff',
+        fontStyle: 'italic',
+    },
     searchBarContainer: {
-        backgroundColor: '#E60014',
-        paddingTop: Platform.OS === 'ios' ? 0 : StatusBar.currentHeight || 10,
-        paddingBottom: 16,
-        paddingHorizontal: '5%',
-      
+        backgroundColor: '#d4af37',
+        padding: 15,
     },
     searchBar: {
         flexDirection: 'row',
         alignItems: 'center',
         backgroundColor: '#fff',
         borderRadius: 24,
-        paddingHorizontal: 12,
+        paddingHorizontal: 15,
         height: 44,
     },
     icon: {
-        marginRight: 8,
+        marginRight: 10,
     },
     input: {
         flex: 1,
         fontSize: 16,
         color: '#000',
-        borderWidth: 0,
-        outlineStyle: 'none',
     },
-    imageContainer: {
-        width: '100%',
-        alignItems: 'center',
-        marginTop: 16,
-    },
-    bannerImage: {
-        width: Dimensions.get('window').width,
-        height: 140,
-        borderRadius: 0,
-    },
-
-    carouselContainer: {
-        marginTop: 20,
-        paddingBottom: 30,
-    },
-    carouselTitle: {
-        fontSize: 18,
+    sectionTitle: {
+        fontSize: 22,
         fontWeight: 'bold',
-        marginLeft: 16,
-        marginBottom: 12,
         color: '#333',
+        margin: 20,
+        marginBottom: 15,
     },
-    
+    carouselList: {
+        paddingLeft: 20,
+    },
     carouselItemContainer: {
-        width: Math.round(Dimensions.get('window').width * 0.99), 
-        height: Math.round(Dimensions.get('window').width * 0.3),
-        marginHorizontal: 10, 
-        borderRadius: 12,
+        width: Dimensions.get('window').width * 0.9,
+        marginRight: 20,
+        borderRadius: 10,
         overflow: 'hidden',
+        backgroundColor: '#f9f9f9',
+        shadowColor: '#000',
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.1,
-        shadowRadius: 8,
-        elevation: 0,
-        backgroundColor: '#fff', 
-        alignItems: 'center',
-        justifyContent: 'center',
-    
-        
+        shadowRadius: 6,
+        elevation: 3,
     },
     carouselImage: {
-        width: '100%', 
-        height: '86%', 
-        borderRadius: 12,
-        marginTop: 20,
-        height: '90%',
+        width: '100%',
+        height: 200,
+    },
+    productInfo: {
+        padding: 15,
+    },
+    productName: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: '#333',
+        marginBottom: 5,
+    },
+    productPrice: {
+        fontSize: 16,
+        color: '#d4af37',
+        fontWeight: 'bold',
+        marginBottom: 8,
+    },
+    productDescription: {
+        fontSize: 14,
+        color: '#666',
     },
     paginationContainer: {
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 15,
-        
+        marginVertical: 15,
     },
     paginationDot: {
         width: 8,
@@ -544,35 +298,68 @@ const styles = StyleSheet.create({
         marginHorizontal: 4,
     },
     paginationDotActive: {
-        backgroundColor: '#E60014',
-        width: 12,
-        height: 8,
+        backgroundColor: '#d4af37',
+        width: 20,
     },
-    
-
-    gridContainer: {
-        padding: 8,
-        marginBottom: 20,
-    },
-    gridRow: {
+    collectionsContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginBottom: 10,
+        paddingHorizontal: 20,
+        marginBottom: 20,
     },
-    gridItem: {
+    collectionItem: {
         width: '48%',
-        height: Math.round(Dimensions.get('window').width * 0.25),
-        borderRadius: 8,
-        overflow: 'hidden',
-        backgroundColor: '#f9f9f9',
     },
-    gridImage: {
+    collectionImage: {
         width: '100%',
-        height: '100%',
+        height: 150,
+        borderRadius: 10,
     },
-    scrollViewContent: {
-        flexGrow: 1,
-        paddingBottom: 20,
-      
+    collectionName: {
+        textAlign: 'center',
+        marginTop: 10,
+        fontSize: 16,
+        fontWeight: '500',
+        color: '#333',
+    },
+    productRow: {
+        justifyContent: 'space-between',
+        paddingHorizontal: 15,
+        marginBottom: 15,
+    },
+    productItem: {
+        width: '48%',
+        backgroundColor: '#f9f9f9',
+        borderRadius: 10,
+        overflow: 'hidden',
+        marginBottom: 15,
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.1,
+        shadowRadius: 6,
+        elevation: 3,
+    },
+    productImage: {
+        width: '100%',
+        height: 150,
+    },
+    aboutContainer: {
+        padding: 20,
+        margin: 20,
+        backgroundColor: '#f5f5f5',
+        borderRadius: 10,
+    },
+    aboutTitle: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: '#333',
+        marginBottom: 10,
+        textAlign: 'center',
+    },
+    aboutText: {
+        fontSize: 15,
+        color: '#666',
+        lineHeight: 22,
+        textAlign: 'center',
     },
 });
