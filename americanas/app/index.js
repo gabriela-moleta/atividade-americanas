@@ -34,21 +34,21 @@ export default function JewelryStore() {
     const featuredProducts = [
         {
             id: '1',
-            uri: 'https://cdn.shopify.com/s/files/1/0562/0241/3065/products/pulseira-de-ouro-18k-corrente-italiana-01_800x.jpg?v=1645568131',
+            uri: 'https://mail.google.com/mail/u/0?ui=2&ik=ceb4af4328&attid=0.8&permmsgid=msg-f:1839183120111509015&th=1986174da7241e17&view=fimg&fur=ip&permmsgid=msg-f:1839183120111509015&sz=s0-l75-ft&attbid=ANGjdJ81Tr1DmPY0F6kvRkVVPtn_DFFYgRa5yYngfxFabdC1s15TzW0byYnC0hAEOHSYgf3s0b2fD-ZxdHP4yVK8Ymn1D7_404zSWLBaXYfdL3Y7r4VAESknB6-2DmA&disp=emb&realattid=ii_mdrnj44f7&zw',
             name: 'Pulseira Italiana',
             price: 'R$ 1.899,90',
             description: 'Pulseira em ouro 18k, corrente italiana 4mm'
         },
         {
             id: '2',
-            uri: 'https://cdn.shopify.com/s/files/1/0562/0241/3065/products/anel-de-ouro-18k-com-zirconia-cubica-01_800x.jpg?v=1645568131',
+            uri: 'https://mail.google.com/mail/u/0?ui=2&ik=ceb4af4328&attid=0.4&permmsgid=msg-a:r-3170493117104551944&th=198617477199f097&view=fimg&fur=ip&permmsgid=msg-a:r-3170493117104551944&sz=s0-l75-ft&attbid=ANGjdJ_X6mbm1fFb4NPDv54NZtIzpbeoeFvFuizyDYXftmX72J1bRg17ihIDwaRO0-5XMQF0Ij4FKcgZjpfy53mzA_lwzhiQRjkB1Is1jJGuWzxyNukZeQ2bQHVpqno&disp=emb&realattid=ii_mdrnhtve3&zw',
             name: 'Anel de Zircônia',
             price: 'R$ 799,90',
             description: 'Anel em ouro 18k com zircônia cúbica, brilho intenso'
         },
         {
             id: '3',
-            uri: 'https://cdn.shopify.com/s/files/1/0562/0241/3065/products/colar-de-ouro-18k-corrente-cubana-01_800x.jpg?v=1645568131',
+            uri: 'https://mail.google.com/mail/u/0?ui=2&ik=ceb4af4328&attid=0.4&permmsgid=msg-f:1839183120111509015&th=1986174da7241e17&view=fimg&fur=ip&permmsgid=msg-f:1839183120111509015&sz=s0-l75-ft&attbid=ANGjdJ_2rFNvDRJytWtownMpH17p8wGrUXdskfFVkNf4hkQztX7ctNNahwvtVEFFdN5YHyhRnzGQL--Vt2qPfLkav8AORB2Mnu7oP1RTORRN7I8OCUQPojuJo26c5D0&disp=emb&realattid=ii_mdrnh19r3&zw',
             name: 'Colar Cubano',
             price: 'R$ 3.299,90',
             description: 'Colar em ouro 18k, corrente cubana 8mm'
