@@ -1,124 +1,126 @@
-import React, { useState } from "react";
-import { View, Text, StyleSheet, TextInput, Pressable, Alert } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import React from "react";
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
-const ContactScreen = () => {
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [message, setMessage] = useState('');
+export default function Contato() {
+  return (
+    <ScrollView contentContainerStyle={styles.container}>
+      <Text style={styles.title}>💌 Fale com a gente</Text>
+      <Text style={styles.subtitle}>
+        Adoramos ouvir você! Preencha o formulário e entraremos em contato o quanto antes.
+      </Text>
 
-    const handleSubmit = () => {
-        if (!name || !email || !message) {
-            Alert.alert('Erro', 'Por favor, preencha todos os campos');
-            return;
-        }
-        
-        // Aqui você pode adicionar a lógica para enviar o formulário
-        Alert.alert('Sucesso', 'Mensagem enviada com sucesso!');
-        setName('');
-        setEmail('');
-        setMessage('');
-    };
+      <View style={styles.inputContainer}>
+        <Ionicons name="person-outline" size={20} color="#888" style={styles.icon} />
+        <TextInput style={styles.input} placeholder="Seu nome" placeholderTextColor="#aaa" />
+      </View>
 
-    return (
-        <View style={styles.container}>
-            <Text style={styles.title}>Fale Conosco</Text>
-            <Text style={styles.subtitle}>Entre em contato com nossa equipe</Text>
+      <View style={styles.inputContainer}>
+        <Ionicons name="mail-outline" size={20} color="#888" style={styles.icon} />
+        <TextInput style={styles.input} placeholder="Seu e-mail" placeholderTextColor="#aaa" keyboardType="email-address" />
+      </View>
 
-            <View style={styles.form}>
-                <Text style={styles.label}>Nome</Text>
-                <TextInput
-                    style={styles.input}
-                    placeholder="Seu nome completo"
-                    value={name}
-                    onChangeText={setName}
-                />
+      <View style={[styles.inputContainer, { height: 120, alignItems: "flex-start" }]}>
+        <Ionicons name="chatbubble-ellipses-outline" size={20} color="#888" style={styles.iconTop} />
+        <TextInput
+          style={[styles.input, { height: 120, textAlignVertical: "top" }]}
+          placeholder="Escreva sua mensagem..."
+          placeholderTextColor="#aaa"
+          multiline
+        />
+      </View>
 
-                <Text style={styles.label}>E-mail</Text>
-                <TextInput
-                    style={styles.input}
-                    placeholder="seu@email.com"
-                    keyboardType="email-address"
-                    value={email}
-                    onChangeText={setEmail}
-                />
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>Enviar mensagem ✨</Text>
+      </TouchableOpacity>
 
-                <Text style={styles.label}>Mensagem</Text>
-                <TextInput
-                    style={[styles.input, styles.messageInput]}
-                    placeholder="Sua mensagem..."
-                    multiline
-                    numberOfLines={4}
-                    value={message}
-                    onChangeText={setMessage}
-                />
-
-                <Pressable style={styles.submitButton} onPress={handleSubmit}>
-                    <Text style={styles.submitButtonText}>Enviar Mensagem</Text>
-                    <Ionicons name="send-outline" size={20} color="#FFF" />
-                </Pressable>
-            </View>
-        </View>
-    );
-};
+      <View style={styles.infoBox}>
+        <Text style={styles.infoText}>📍 Av. Joaquim Alves Corrêa 2677, Valinhos SP</Text>
+        <Text style={styles.infoText}>📞 (19) 99418-7774</Text>
+        <Text style={styles.infoText}>✉️ Espaço Aquarela</Text>
+      </View>
+    </ScrollView>
+  );
+}
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        padding: 20,
-        backgroundColor: '#F8F8FF',
-    },
-    title: {
-        fontSize: 24,
-        fontWeight: 'bold',
-        color: '#EE0000',
-        textAlign: 'center',
-        marginTop: 40,
-        marginBottom: 10,
-    },
-    subtitle: {
-        fontSize: 16,
-        color: '#666',
-        textAlign: 'center',
-        marginBottom: 30,
-    },
-    form: {
-        width: '100%',
-    },
-    label: {
-        fontSize: 16,
-        fontWeight: '500',
-        color: '#333',
-        marginBottom: 8,
-        marginTop: 15,
-    },
-    input: {
-        backgroundColor: '#FFF',
-        borderWidth: 1,
-        borderColor: '#DDD',
-        borderRadius: 5,
-        padding: 15,
-        fontSize: 16,
-    },
-    messageInput: {
-        height: 120,
-        textAlignVertical: 'top',
-    },
-    submitButton: {
-        backgroundColor: '#EE0000',
-        borderRadius: 5,
-        padding: 15,
-        marginTop: 30,
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    submitButtonText: {
-        color: '#FFF',
-        fontWeight: 'bold',
-        fontSize: 16,
-        marginRight: 10,
-    },
+  container: {
+    flexGrow: 1,
+    padding: 20,
+    backgroundColor: "#fef9ff",
+    alignItems: "center",
+  },
+  title: {
+    fontSize: 26,
+    fontWeight: "700",
+    color: "#6C63FF",
+    marginBottom: 10,
+    textAlign: "center",
+  },
+  subtitle: {
+    fontSize: 14,
+    color: "#555",
+    marginBottom: 25,
+    textAlign: "center",
+    paddingHorizontal: 10,
+  },
+  inputContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "#fff",
+    borderRadius: 15,
+    paddingHorizontal: 12,
+    marginBottom: 15,
+    shadowColor: "#000",
+    shadowOpacity: 0.05,
+    shadowRadius: 5,
+    elevation: 2,
+    width: "100%",
+    height: 55,
+  },
+  icon: {
+    marginRight: 8,
+  },
+  iconTop: {
+    marginRight: 8,
+    marginTop: 10,
+  },
+  input: {
+    flex: 1,
+    fontSize: 14,
+    color: "#333",
+  },
+  button: {
+    backgroundColor: "#6C63FF",
+    paddingVertical: 15,
+    borderRadius: 15,
+    width: "100%",
+    alignItems: "center",
+    marginTop: 10,
+    shadowColor: "#6C63FF",
+    shadowOpacity: 0.3,
+    shadowRadius: 6,
+    elevation: 3,
+  },
+  buttonText: {
+    color: "#fff",
+    fontSize: 16,
+    fontWeight: "600",
+  },
+  infoBox: {
+    marginTop: 25,
+    padding: 15,
+    backgroundColor: "#fff",
+    borderRadius: 15,
+    width: "100%",
+    shadowColor: "#000",
+    shadowOpacity: 0.05,
+    shadowRadius: 5,
+    elevation: 2,
+  },
+  infoText: {
+    fontSize: 14,
+    color: "#555",
+    marginBottom: 6,
+  },
 });
-
-export default ContactScreen;
